@@ -1,0 +1,38 @@
+<script>
+var width=300;
+var height=30;
+var loc=width/height/2-1;
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MoveSquare</title>
+</head>
+<body>
+<p>下面是一个平凡的方块，点击两个按钮来移动它</p>
+<canvas id="bar" style="border:1px solid">你的浏览器不支持canvas</canvas>
+<hr/>
+<button id="left" onclick="left()">向左移动</button>
+<button id="right" onclick="right()">向右移动</button>
+</body></html>
+
+<script>
+document.getElementById("bar").width=width;
+document.getElementById("bar").height=height;
+document.getElementById("bar").getContext("2d").fillRect(loc*height,0,height,height);
+
+function left()
+{
+if(loc>0){loc--;}
+document.getElementById("bar").getContext("2d").clearRect(0,0,width,height);
+document.getElementById("bar").getContext("2d").fillRect(loc*height,0,height,height);
+}
+function right()
+{
+if(loc<width/height-1){loc++;}
+document.getElementById("bar").getContext("2d").clearRect(0,0,width,height);
+document.getElementById("bar").getContext("2d").fillRect(loc*height,0,height,height);
+}
+</script>
